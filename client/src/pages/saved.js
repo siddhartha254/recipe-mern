@@ -24,7 +24,7 @@ const Saved = () =>{
 
     return(
         <div className="header">
-            <h1>Saved Recipes</h1>
+            <h1>Your Saved Recipes</h1>
 
             <ul>
                 {savedRecipes.map((recipe)=>(
@@ -49,7 +49,9 @@ const Saved = () =>{
                             <div className="text"><p> {recipe.instructions}</p></div>
                         </div>
 
-                        <img src={recipe.imageUrl} alt={recipe.name}/>
+                        <div className="image-div">
+                            <img src={recipe.imageUrl} alt={recipe.name}/>
+                        </div>
                         
                     </li>
                 ))}
