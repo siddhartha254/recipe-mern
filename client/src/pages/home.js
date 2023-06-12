@@ -63,25 +63,28 @@ const Home = () =>{
                 {recipes.map((recipe)=>(
                     <li key={recipe._id}>
 
-                        <div>
-                            <h2>{recipe.name}</h2>
-                            <button 
-                                onClick={()=> saveRecipe(recipe._id)}
-                                disabled={isRecipeSaved(recipe._id)}
-                                >{isRecipeSaved(recipe._id)?"Saved":"Save"}
-                            </button>
+                        <div className="recipe-top">
+                            <div className="recipe-header">
+                                <h2>{recipe.name}</h2>
+                                <button 
+                                    onClick={()=> saveRecipe(recipe._id)}
+                                    disabled={isRecipeSaved(recipe._id)}
+                                    >{isRecipeSaved(recipe._id)?"Saved":"Save"}
+                                </button>
+                            </div>
                             <p>Cooking Time: {recipe.cookingTime} minutes</p>
                         </div>
 
                         <div className="ingredients">
-                            <p>Ingredients: </p>
+                            <div className="ingredients-name"><p>Ingredients: </p></div>
                             {recipe.ingredients.map((ingredient, index) => (
                                 <p class="inline" key={index}> {ingredient},</p>
                             ))}
                         </div>
 
                         <div className="instructions">
-                            <p>Instructions: {recipe.instructions}</p>
+                            <div className="instructions-name"><p>Instructions:</p></div>
+                            <div className="text"><p> {recipe.instructions}</p></div>
                         </div>
 
                         <img src={recipe.imageUrl} alt={recipe.name}/>
