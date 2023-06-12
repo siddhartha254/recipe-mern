@@ -56,7 +56,7 @@ const Create = () =>{
         <div className="create-recipe">
             <h2>Add Recipe</h2>
             <form onSubmit={onSubmit}>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Dish Name</label>
                 <input type="text" id="name"name="name" onChange={handleChange}/>
                 
                 <label htmlFor="ingredients">Ingredients</label>
@@ -67,6 +67,7 @@ const Create = () =>{
                         type="text" 
                         name="ingredients" 
                         value={ingredient} 
+                        id="ingredient-field"
                         onChange={(event)=>handleIngredientChange(event,idx)}
                     />
                 ))}
@@ -79,7 +80,7 @@ const Create = () =>{
                 <label htmlFor="cookingTime">Cooking Time (minutes)</label>
                 <input type="number" id="cookingTime" name="cookingTime"onChange={handleChange} />
                 
-                <button type="submit">Add</button>
+                <button type="submit" id="submitButton">Add Recipe</button>
 
             </form>
             
