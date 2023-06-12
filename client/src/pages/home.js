@@ -56,12 +56,13 @@ const Home = () =>{
     const isRecipeSaved = (id) => savedRecipes.includes(id);
 
     return(
-        <div>
+        <div className="header">
             <h1>Recipes</h1>
 
             <ul>
                 {recipes.map((recipe)=>(
                     <li key={recipe._id}>
+
                         <div>
                             <h2>{recipe.name}</h2>
                             <button 
@@ -69,12 +70,24 @@ const Home = () =>{
                                 disabled={isRecipeSaved(recipe._id)}
                                 >{isRecipeSaved(recipe._id)?"Saved":"Save"}
                             </button>
+                            <p>Cooking Time: {recipe.cookingTime} minutes</p>
                         </div>
+
+                        <div className="ingredients">
+                            <p>Ingredients: </p>
+                            {recipe.ingredients.map((ingredient, index) => (
+                                <p class="inline" key={index}> {ingredient},</p>
+                            ))}
+                        </div>
+
                         <div className="instructions">
-                            <p>{recipe.instructions}</p>
+                            <p>Instructions: {recipe.instructions}</p>
                         </div>
+
                         <img src={recipe.imageUrl} alt={recipe.name}/>
-                        <p>Cooking Time: {recipe.cookingTime} minutes</p>
+
+                        
+
                     </li>
                 ))}
             </ul>

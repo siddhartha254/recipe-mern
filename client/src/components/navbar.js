@@ -16,14 +16,16 @@ export const Navbar = () => {
 
     return (
     <div className="navbar">
+        <div className="left">
         <Link to="/">Home</Link>
         <Link to="/create">Add Recipe</Link>
+        </div>
         {!cookies.access_token ? (
             <Link to="/auth">Login/Register</Link>) 
             :(
                 <>
-                <Link to="/saved">Saved Recipes</Link>
-                <button onClick={logout}>Logout</button>
+                <div className="saved-div"><Link to="/saved">Saved</Link></div>
+                <div className="nav-button"><button onClick={logout}>Logout</button></div>
                 </>
             )
         }
