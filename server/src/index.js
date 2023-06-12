@@ -13,7 +13,7 @@ app.use(cors());
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
-mongoose.connect("mongodb+srv://user:MERNpass@recipes.bbbyfru.mongodb.net/recipes?retryWrites=true&w=majority",{
+mongoose.connect("mongodb+srv://user:MERNpass@recipes.bbbyfru.mongodb.net/recipes?retryWrites=true&w=majoritydirectConnection=true",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
