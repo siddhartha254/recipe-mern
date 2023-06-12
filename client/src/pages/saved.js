@@ -23,20 +23,34 @@ const Saved = () =>{
 
 
     return(
-        <div>
+        <div className="header">
             <h1>Saved Recipes</h1>
 
             <ul>
                 {savedRecipes.map((recipe)=>(
                     <li key={recipe._id}>
-                        <div>
-                            <h2>{recipe.name}</h2>
+                        
+                        <div className="recipe-top">
+                            <div className="recipe-header">
+                                <h2>{recipe.name}</h2>
+                            </div>
+                            <p>Cooking Time: {recipe.cookingTime} minutes</p>
                         </div>
+
+                        <div className="ingredients">
+                            <div className="ingredients-name"><p>Ingredients: </p></div>
+                            {recipe.ingredients.map((ingredient, index) => (
+                                <p class="inline" key={index}> {ingredient},</p>
+                            ))}
+                        </div>
+
                         <div className="instructions">
-                            <p>{recipe.instructions}</p>
+                            <div className="instructions-name"><p>Instructions:</p></div>
+                            <div className="text"><p> {recipe.instructions}</p></div>
                         </div>
+
                         <img src={recipe.imageUrl} alt={recipe.name}/>
-                        <p>Cooking Time: {recipe.cookingTime} minutes</p>
+                        
                     </li>
                 ))}
             </ul>

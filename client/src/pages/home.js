@@ -89,8 +89,6 @@ const Home = () =>{
 
                         <img src={recipe.imageUrl} alt={recipe.name}/>
 
-                        
-
                     </li>
                 ))}
             </ul>
